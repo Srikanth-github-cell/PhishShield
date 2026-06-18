@@ -1,0 +1,31 @@
+# Flask web framework
+Flask==2.3.3
+flask-cors==4.0.0
+
+# HTTP requests
+requests==2.31.0
+urllib3==2.0.7
+
+# HTML parsing
+beautifulsoup4==4.12.2
+
+# Email parsing and processing
+email-validator==2.1.0
+
+# Additional utilities
+python-dateutil==2.8.2
+
+# Logging enhancements
+colorlog==6.8.0
+
+# Security and validation
+validators==0.22.0
+
+# Development dependencies (optional)
+pytest==7.4.3
+pytest-cov==4.1.0
+black==23.11.0
+flake8==6.1.0
+
+# Production server (optional)
+gunicorn==21.2.0

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>PhishGuard Pro</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="popup-container">
+
+    <!-- Header -->
+    <div class="header">
+      <div class="logo">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/>
+          <path d="M12 8v4l3 3"/>
+        </svg>
+        <span>PhishGuard Pro</span>
+      </div>
+      <div class="scan-status">
+        <span class="status-text">Phishing Scan Result</span>
+      </div>
+    </div>
+
+    <!-- Loading State -->
+    <div id="loading-container" class="loading-container">
+      <div class="loading-spinner">
+        <div class="spinner-ring"></div>
+        <div class="spinner-ring"></div>
+        <div class="spinner-ring"></div>
+      </div>
+      <p class="loading-text">Analyzing threat data...</p>
+    </div>
+
+    <!-- Error State -->
+    <div id="error-container" class="error-container" style="display: none;">
+      <div class="error-icon">
+        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="12" cy="12" r="10"/>
+          <line x1="15" y1="9" x2="9" y2="15"/>
+          <line x1="9" y1="9" x2="15" y2="15"/>
+        </svg>
+      </div>
+      <h3>Scan Failed</h3>
+      <p class="error-text">Unable to connect to scanning service</p>
+    </div>
+
+    <!-- Results -->
+    <div id="results-container" class="main-content" style="display: none;">
+      <!-- Risk Indicator -->
+      <div id="risk-indicator" class="verdict-badge">
+        <div class="risk-icon">✅</div>
+        <div class="risk-text">
+          <span id="risk-level" class="risk-level">SAFE</span>
+          <span class="risk-description">No threats detected</span>
+        </div>
+      </div>
+
+      <!-- Risk Score -->
+      <div class="score-section">
+        <div class="score-circle">
+          <svg width="120" height="120" viewBox="0 0 120 120">
+            <circle cx="60" cy="60" r="50" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="8"/>
+            <circle cx="60" cy="60" r="50" fill="none" stroke="url(#scoreGradient)" stroke-width="8"
+                    stroke-linecap="round" stroke-dasharray="314" stroke-dashoffset="314"
+                    class="score-progress" />
+            <defs>
+              <linearGradient id="scoreGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" style="stop-color:#00ff88;stop-opacity:1" />
+                <stop offset="100%" style="stop-color:#0066ff;stop-opacity:1" />
+              </linearGradient>
+            </defs>
+          </svg>
+          <div class="score-text">
+            <span id="risk-score" class="score-value">0</span>
+            <span class="score-label">Risk Score</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tab info and scan type -->
+      <div class="meta-info">
+        <div>Scanning: <span id="tab-info">Unknown</span></div>
+        <div>Type: <span id="scan-type">URL</span></div>
+      </div>
+
+      <!-- Results Detail Container -->
+      <div id="details-container" class="details-container"></div>
+    </div>
+
+    <!-- Single Action Button -->
+    <div class="actions-section">
+      <button id="scan-button" class="action-btn primary-btn">
+        🔄 Scan This Page
+      </button>
+    </div>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

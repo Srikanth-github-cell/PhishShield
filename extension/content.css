@@ -1,0 +1,225 @@
+/* content.css – PhishGuard Pro (Dark Theme + Glossy) */
+
+.phishguard-prompt {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 99999;
+  width: 320px;
+  background: rgba(25, 25, 25, 0.65);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  animation: slideDown 0.4s ease;
+  transition: transform 0.3s ease;
+  overflow: hidden;
+  color: #f0f0f0;
+}
+
+@keyframes slideDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.phishguard-prompt-content {
+  padding: 16px;
+}
+
+.phishguard-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #ffffff;
+  margin-bottom: 10px;
+}
+
+.phishguard-message {
+  font-size: 14px;
+  color: #ccc;
+  margin-bottom: 12px;
+}
+
+.phishguard-details {
+  font-size: 13px;
+  color: #999;
+  margin: 2px 0;
+  word-break: break-word;
+}
+
+.phishguard-buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.phishguard-btn {
+  font-size: 13px;
+  padding: 6px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  border: none;
+  transition: background 0.2s ease;
+  font-weight: 500;
+}
+
+.phishguard-btn-primary {
+  background: #00c77f;
+  color: #fff;
+}
+
+.phishguard-btn-primary:hover {
+  background: #00b170;
+}
+
+.phishguard-btn-secondary {
+  background: #222;
+  color: #eee;
+}
+
+.phishguard-btn-secondary:hover {
+  background: #333;
+}
+
+/* Spinner for loading prompt */
+.phishguard-spinner {
+  width: 18px;
+  height: 18px;
+  border: 3px solid rgba(255, 255, 255, 0.1);
+  border-top: 3px solid #00c77f;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Results */
+.phishguard-results .phishguard-risk-badge {
+  border: 1px solid;
+  border-radius: 10px;
+  padding: 6px 10px;
+  font-size: 13px;
+  display: inline-block;
+  margin: 6px 0;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.phishguard-score {
+  display: block;
+  font-size: 12px;
+  opacity: 0.75;
+  margin-top: 4px;
+  color: #aaa;
+}
+
+.phishguard-warning {
+  color: #ff5c5c;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+/* Error prompt */
+.phishguard-error {
+  background: rgba(255, 0, 0, 0.15);
+  border: 1px solid rgba(255, 0, 0, 0.35);
+}
+
+/* URL Scanner specific styles */
+.phishguard-url-scanner {
+  opacity: 0.85;
+  transform: scale(0.95);
+}
+
+.phishguard-url-results {
+  border-left: 4px solid #00c77f;
+}
+
+.phishguard-url-results .phishguard-header {
+  font-size: 15px;
+}
+
+.phishguard-url-results .phishguard-message {
+  font-size: 13px;
+}
+
+/* Positioning variants for multiple prompts */
+.phishguard-prompt:nth-of-type(2) {
+  top: 360px;
+}
+
+.phishguard-prompt:nth-of-type(3) {
+  top: 520px;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .phishguard-prompt {
+    width: 280px;
+    right: 10px;
+    top: 10px;
+  }
+  
+  .phishguard-prompt-content {
+    padding: 12px;
+  }
+  
+  .phishguard-header {
+    font-size: 14px;
+  }
+  
+  .phishguard-message {
+    font-size: 13px;
+  }
+  
+  .phishguard-btn {
+    font-size: 12px;
+    padding: 5px 10px;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .phishguard-prompt {
+    background: rgba(0, 0, 0, 0.9);
+    border: 2px solid #ffffff;
+  }
+  
+  .phishguard-btn-primary {
+    background: #ffffff;
+    color: #000000;
+  }
+  
+  .phishguard-btn-secondary {
+    background: #000000;
+    color: #ffffff;
+    border: 1px solid #ffffff;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .phishguard-prompt {
+    animation: none;
+  }
+  
+  .phishguard-spinner {
+    animation: none;
+  }
+}
